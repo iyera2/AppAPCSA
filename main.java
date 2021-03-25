@@ -43,24 +43,6 @@ public class main extends JFrame {
 
         setJMenuBar(menuBar);
     }
-    // public class Login
-    // {
-    //     String username, password;
-    //     Scanner s = new Scanner(System.in);
-    //     System.out.print("Enter username:");
-    //     username = s.nextLine();
-    //     System.out.print("Enter password:");
-    //     password = s.nextLine();
-    //     if(username.equals(usernamex) && password.equals(passwordx))
-    //     {
-    //         System.out.println("Welcome");
-    //     }
-    //     else
-    //     {
-    //         System.out.println("Incorrect username/password");
-    //     }
-    // }
-}
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
 
