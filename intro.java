@@ -3,6 +3,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.Component;
@@ -34,8 +35,8 @@ public class intro extends JFrame {
         var submitButton = new JButton("Submit");
         submitButton.addActionListener(new SubmitAction());
 
-        // var CreateAccount = new JButton("Create Account");
-        // CreateAccount.addActionListener((ActionListener) new CreateAccount());
+        var resetButton = new JButton("Reset");
+        resetButton.addActionListener(new SubmitAction());
 
         createLayout(lbl1, loginField, lbl2, passField, submitButton);
 
@@ -54,43 +55,16 @@ public class intro extends JFrame {
 
         private void doSubmitAction() {
 
-            var login = loginField.getText();
-            var passwd = passField.getPassword();
+            String login = loginField.getText();
+            String passwd = passField.getText();
 
-            if (!login.isEmpty() && passwd.length != 0) {
-
-                System.out.format("User %s entered %s password%n",
-                        login, String.valueOf(passwd));
+            if (login.equalsIgnoreCase("Hello") && passwd.equalsIgnoreCase("5314")) {
+                JOptionPane.showInputDialog(this, "Login Successful");
+            } else {
+                JOptionPane.showInputDialog(this, "Login Unsuccessful"); 
             }
-
-            Arrays.fill(passwd, '0');
         }
     }
-
-    // public class CreateAccount extends JFrame{
-    
-    //     public CreateAccount() {
-    
-    //         newinitUI();
-    //     }
-    // }
-
-    // private void newinitUI(){
-    //     var lbl1 = new JLabel("Login");
-    //     var lbl2 = new JLabel("Password");
-
-    //     JTextField newloginField = new JTextField(15);
-    //     JPasswordField newpassField = new JPasswordField(15);
-
-    //     var saveButton = new JButton("Save");
-    //     saveButton.addActionListener(new SubmitAction());
-
-    //     createLayout(lbl1, newloginField, lbl2, newpassField, saveButton);
-
-    //     setTitle("Create Account");
-    //     setLocationRelativeTo(null);
-    //     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    // }
 
     private void createLayout(Component... arg) {
 
