@@ -33,10 +33,15 @@ public class password extends JFrame {
         loginField = new JTextField(10);
         passField = new JPasswordField(15);
 
+        SubmitAction act = new SubmitAction();
+
         var submitButton = new JButton("Save");
         submitButton.addActionListener(new SubmitAction());
 
-        createLayout(lbl3, websiteName, lbl1, loginField, lbl2, passField, submitButton);
+        var passwordList = new JButton("Password List");
+        passwordList.addActionListener(new SubmitAction());
+
+        createLayout(lbl3, websiteName, lbl1, loginField, lbl2, passField, submitButton, passwordList);
 
         setTitle("Password");
         setLocationRelativeTo(null);
@@ -84,7 +89,8 @@ public class password extends JFrame {
                         .addComponent(arg[3])
                         .addComponent(arg[4])
                         .addComponent(arg[5])
-                        .addComponent(arg[6]))
+                        .addComponent(arg[6])
+                        .addComponent(arg[7]))
                 .addGap(50)
         );
 
@@ -102,7 +108,10 @@ public class password extends JFrame {
                         .addComponent(arg[5], GroupLayout.DEFAULT_SIZE,
                                 GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(UNRELATED)
-                        .addComponent(arg[6]))
+                        .addComponent(arg[6])
+                        .addComponent(arg[7], GroupLayout.DEFAULT_SIZE,
+                                GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(UNRELATED))
                 .addGap(50)
         );
 

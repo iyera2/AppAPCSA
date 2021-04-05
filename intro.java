@@ -33,7 +33,12 @@ public class intro extends JFrame {
         passField = new JPasswordField(15);
 
         var submitButton = new JButton("Submit");
-        submitButton.addActionListener(new SubmitAction());
+        submitButton.addActionListener(new ActionListener () {
+			@Override
+			public void actionPerformed(ActionEvent a){
+                
+			}
+		});
 
         var resetButton = new JButton("Reset");
         resetButton.addActionListener(new SubmitAction());
