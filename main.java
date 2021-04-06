@@ -1,10 +1,8 @@
 import javax.swing.*;
-import java.awt.*;
-import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import java.awt.EventQueue;
-import java.util.Scanner;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
 
 
 public class main extends JFrame {
@@ -15,11 +13,26 @@ public class main extends JFrame {
     }
 
     private void UI(){
+
+        SubmitAction act = new SubmitAction();
         createLayout();
         setTitle("Welcome to Password Storer");
         setSize(300, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    private class SubmitAction extends AbstractAction {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            doSubmitAction();
+        }
+
+        private void doSubmitAction() {
+            System.out.println("Hello");
+        }
     }
 
     public void createLayout(){
@@ -30,6 +43,7 @@ public class main extends JFrame {
         var fileMenu = new JMenu("File");
 
         var newMenuItem = new JMenuItem("New Password", iconNewPassword);
+        newMenuItem.addActionListener(new SubmitAction());
         var exitMenuItem = new JMenuItem("Exit", exitIcon);
         var helpMenuItem = new JMenuItem("Help");
 
@@ -43,6 +57,8 @@ public class main extends JFrame {
 
         setJMenuBar(menuBar);
     }
+
+    
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
 

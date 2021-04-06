@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
+import java.io.*;
 
 import static javax.swing.LayoutStyle.ComponentPlacement.UNRELATED;
 
@@ -60,11 +61,20 @@ public class password extends JFrame {
 
             var login = loginField.getText();
             var passwd = passField.getPassword();
+            var website = websiteName.getText();
 
             if (!login.isEmpty() && passwd.length != 0) {
-
-                System.out.format("User %s entered %s password%n",
-                        login, String.valueOf(passwd));
+                try {
+                    FileWriter myWriter = new FileWriter("filename.txt");
+                    myWriter.write("Website Name: " + website);
+                    myWriter.write(" Login: " + login);
+                    myWriter.write(" Password: " + String.valueOf(passwd));
+                    myWriter.close();
+                    System.out.println("Wrote to file");
+                } catch (IOException e) {
+                    System.out.println("An error occured");
+                    e.printStackTrace();
+                }
             }
 
             Arrays.fill(passwd, '0');
