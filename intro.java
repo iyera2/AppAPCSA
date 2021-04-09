@@ -36,7 +36,8 @@ public class intro extends JFrame {
         submitButton.addActionListener(new ActionListener () {
 			@Override
 			public void actionPerformed(ActionEvent a){
-                
+                password pass = new password(); 
+                pass.setVisible(true);
 			}
 		});
 
