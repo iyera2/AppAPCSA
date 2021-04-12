@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.io.*;
 
@@ -40,7 +41,13 @@ public class password extends JFrame {
         submitButton.addActionListener(new SubmitAction());
 
         var passwordList = new JButton("Password List");
-        passwordList.addActionListener(new SubmitAction());
+        submitButton.addActionListener(new ActionListener () {
+            @Override
+            public void actionPerformed(ActionEvent a){
+                passwordlist list = new passwordlist();
+                list.setVisible(true);
+            }
+        });
 
         createLayout(lbl3, websiteName, lbl1, loginField, lbl2, passField, submitButton, passwordList);
 
